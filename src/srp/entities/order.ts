@@ -1,7 +1,7 @@
 import { OrderStatus } from './interfaces/order-status';
 import { ShoppingCart } from './shopping-cart';
-import { messaging } from './messaging';
-import { persistency } from './persistency';
+import { messaging } from '../services/messaging';
+import { persistency } from '../services/persistency';
 
 export class Order {
   private _orderStatus: OrderStatus = 'Open';
@@ -19,8 +19,9 @@ export class Order {
     }
 
     messaging.sendMessage(
-      `Seu pedido de valor ${this.cart.total()} foi fechado e está pendente de pagametento!`,
+      `Seu pedido de valor ${this.cart.total()} foi fechado e está pendente de pagamento!`,
     );
+    this._orderStatus = 'Closed';
     persistency.saveOrder();
     this.cart.clear();
   }
