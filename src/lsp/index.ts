@@ -1,8 +1,3 @@
-/*
-  Open/Closed
-  As entidades devem estar abertas para extensão, mas fechadas para modificações.
-*/
-
 import { FiftyPercentDiscount, NoDiscount, TenPercentDiscount } from './classes/discount';
 import { Order } from './classes/order';
 import { Product } from './classes/product';
