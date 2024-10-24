@@ -12,8 +12,9 @@ import { ShoppingCart } from './classes/shopping-cart';
 const fiftyPercentDiscount = new FiftyPercentDiscount();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const tenPercentDiscount = new TenPercentDiscount();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const noDiscount = new NoDiscount();
-const shoppingCart = new ShoppingCart(noDiscount);
+const shoppingCart = new ShoppingCart(tenPercentDiscount);
 const order = new Order(shoppingCart);
 
 shoppingCart.addItem(new Product('Camisa', 55.9));
